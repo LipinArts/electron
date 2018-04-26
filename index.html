@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Electron</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/black.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+
+  </script>
+  <style>
+    h1,
+    h2,
+    h3,
+    p,
+    li {
+      color: rgb(91, 203, 228) !important;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <img src="img/1.jpg" alt="">
+      </section>
+      <section>
+        <section>
+          <blockquote>
+            <i>"If you can build a website, you can build a desktop application!"</i>
+          </blockquote>
+        </section>
+        <section>
+          <h2>WHAT IS ELECTRON?</h2>
+        </section>
+        <!-- <section id="fragments" class="present">
+          <p>Electron is an open source library developed by GitHub for building cross-platform desktop applications with HTML,
+            CSS, and JavaScript.</p>
+          <p>
+            <span class="fragment" data-fragment-index="0">If you can build a website, you can build a desktop app.</p>
+        </section> -->
+        <section>
+          <ul>
+            <li>Open source library for creating cross-platform desktop applications with
+              <b>HTML</b>,
+              <b>CSS</b> and
+              <b>JS</b>
+            </li>
+            <li>Combines
+              <b>Chromium</b> and
+              <b>Node.js</b> into single runtime</li>
+            <li>Apps can be packaged for
+              <b>Window</b>,
+              <b>Mac</b> and
+              <b>Linux</b>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <P>Building blocks of Electron</P>
+          <img src="img/11.png" alt="">
+        </section>
+        <section>
+          <P>Core features</P>
+          <img src="img/12.png" alt="">
+        </section>
+        <section>
+          <P>Core features</P>
+          <img src="img/13.png" alt="">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>History of Electron</h2>
+        </section>
+        <section id="fragments" class="present">
+          <ul style="font-size: 26px;">
+            <li>Project began in January 2013 and formally knows as
+              <b>Atom shell</b> (originally was written for Atom)</li>
+            <li class="fragment" data-fragment-index="0">Project was open sourced in May of 2014</li>
+            <li class="fragment" data-fragment-index="1">Renamed to Electron in April of 2015</li>
+            <li class="fragment" data-fragment-index="2">Released version 1.0.0 in June of 2016</li>
+          </ul>
+        </section>
+        <section>
+          <img src="img/2.png" alt="">
+          <p>It has since become a popular tool used by open source developers, startups and established companies</p>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Apps built on Electron</h2>
+        </section>
+        <section>
+          <img style="height: 400px; margin: 0 auto " src="img/3.png" alt="">
+          <br>
+          <a href="https://electronjs.org/apps">More Apps: https://electronjs.org/apps</a>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Electron under the hood</h2>
+        </section>
+        <section>
+          <img src="img/6.png" alt="">
+          <ul>
+            <li>
+              <b>Main Process </b>- Package.json main script.
+              <br>Creates Browser Window instances to run web page.</li>
+
+          </ul>
+        </section>
+        <section>
+          <img src="img/7.png" alt="">
+          <ul>
+            <li>
+              <b>Renderer Process</b> - Each webpage runs its own isolated process called renderer prcess.</li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Installing Electron</h2>
+        </section>
+        <section style="text-align: left">
+          <p>Install Node.js</p>
+          <p>$ npm install –g electron</p>
+          <p>$ npm install electon –save</p>
+          <p>$ electron .</p>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h2>EXAMPLE</h2>
+          <h3>A minimal Electron application</h3>
+        </section>
+        <section>
+          <h3>Electron structure</h3>
+          <img src="img/8.png" alt="">
+        </section>
+        <section>
+          <p>Package.json</p>
+          <pre><code data-trim>{
+  "name": "new_app",
+  "version": "1.7.9",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+    }
+}</code></pre>
+        </section>
+        <section>
+          <p>Main.js</p>
+          <pre><code>const {app, BrowserWindow} = require('electron')
+let mainWindow = null;
+app.on('ready', () => {
+  mainWindow = new BrowserWindow({ width: 500, height: 400 });
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
+});</code></pre>
+        </section>
+        <section>
+          <p>index.html</p>
+          <pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;script&gt;
+      window.onload = () =&gt; {
+        const fs = require('fs');
+        const p = document.createElement('p');
+        p.textContent = fs.readFileSync('cats.txt');
+        document.body.appendChild(p);
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Electron is awesome.&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+        <section>
+          <p>Results:</p>
+          <img src="img/9.png" alt="">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Some ideas dor Electron apps</h2>
+        </section>
+        <section>
+          <img src="img/10.png" alt="">
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>Why Electron App</h2>
+        </section>
+        <section>
+          <p>Electron app vs Web app</p>
+          <ul style="font-size: 26px;">
+            <li class="fragment" data-fragment-index="0">There is no browser dependency, which can mean avoiding costs in the long-term.</li>
+            <li class="fragment" data-fragment-index="1">An Electron app will run exactly the same in 10 years as it does now. It won’t be affected by new or broken browsers
+              and, from a user perspective, will look and behave the same.</li>
+            <li class="fragment" data-fragment-index="2">You don’t need to worry about users having to manage multiple open browsers and tabs.</li>
+            <li class="fragment" data-fragment-index="3">Users can view Electron applications on a variety of different browsers, including Chrome, Firefox, Internet
+              Explorer, Edge and Safari.</li>
+            <li class="fragment" data-fragment-index="4">Electron applications run the same regardless of the operating system.</li>
+            <li class="fragment" data-fragment-index="5">You don’t need to worry about browser caches when the website is updated.</li>
+            <li class="fragment" data-fragment-index="6">Users won’t lose their data when they refresh.</li>
+            <li class="fragment" data-fragment-index="7">Development cost for Electron applications is lower because developers don’t need to code across multiple browsers
+              and operating systems.</li>
+            <li class="fragment" data-fragment-index="8">You dont have to worry about slow internt connection or lack of it at all. Electron app works offline.</li>
+        </section>
+      </section>
+      <section>
+        <h2>Thanks :)</h2>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      dependencies: [{
+          src: 'plugin/markdown/marked.js'
+        },
+        {
+          src: 'plugin/markdown/markdown.js'
+        },
+        {
+          src: 'plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: 'plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+
+  </script>
+</body>
+
+</html>
