@@ -118,31 +118,17 @@
           <h2>Electron under the hood</h2>
         </section>
         <section>
-          <img src="img/6.png" alt="">
-          <ul>
+          <ul style="font-size: 30px;">
             <li>
-              <b>Main Process </b>- Package.json main script.
-              <br>Creates Browser Window instances to run web page.</li>
+              <b>Main Process </b>- controls the life of the application. Creates Browser Window instances to run web page.</li>
+          </ul>
+          <img style="width: 600px;" src="img/6.png" alt="">
+          <ul style="font-size: 30px;">
+            <li>
+              <b>Render Process</b> - is a browser window in your app. Each window runs its own isolated process.</li>
+          </ul>
+          <img style="width: 600px;" src="img/7.png" alt="">
 
-          </ul>
-        </section>
-        <section>
-          <img src="img/7.png" alt="">
-          <ul>
-            <li>
-              <b>Renderer Process</b> - Each webpage runs its own isolated process called renderer process.</li>
-          </ul>
-        </section>
-      </section>
-      <section>
-        <section>
-          <h2>Installing Electron</h2>
-        </section>
-        <section style="text-align: left">
-          <p>Install Node.js</p>
-          <p>$ npm install –g electron</p>
-          <p>$ npm install electon –save</p>
-          <p>$ electron .</p>
         </section>
       </section>
 
@@ -200,29 +186,15 @@ app.on('ready', () => {
       </section>
       <section>
         <section>
-          <h2>Some ideas for Electron apps</h2>
+          <h2>Benefits of using Electron</h2>
         </section>
         <section>
-          <img src="img/10.png" alt="">
-        </section>
-      </section>
-      <section>
-        <section>
-          <h2>Why Electron App</h2>
-        </section>
-        <section>
-          <p>Electron app vs Web app</p>
           <ul style="font-size: 26px;">
-            <li class="fragment" data-fragment-index="0">There is no browser dependency, which can mean avoiding costs in the long-term.</li>
-            <li class="fragment" data-fragment-index="1">An Electron app will run exactly the same in 10 years as it does now. It won’t be affected by new or broken browsers
-              and, from a user perspective, will look and behave the same.</li>
-            <li class="fragment" data-fragment-index="2">You don’t need to worry about users having to manage multiple open browsers and tabs.</li>
+            <li>Electron uses Web tools to create apps.</li>
+            <li class="fragment" data-fragment-index="1">Thanks to a simplified, single-shared library, users can build Electron app without a powerful machine.</li>
+            <li class="fragment" data-fragment-index="2">Applications built with Electron can be run on most platforms, including Mac, Linux and Windows.</li>
             <li class="fragment" data-fragment-index="4">Electron applications run the same regardless of the operating system.</li>
-            <li class="fragment" data-fragment-index="5">You don’t need to worry about browser caches when the website is updated.</li>
-            <li class="fragment" data-fragment-index="6">Users won’t lose their data when they refresh.</li>
-            <li class="fragment" data-fragment-index="7">Development cost for Electron applications is lower because developers don’t need to code across multiple browsers
-              and operating systems.</li>
-            <li class="fragment" data-fragment-index="8">You dont have to worry about slow internet connection or lack of it at all. Electron app works offline.</li>
+          </ul>
         </section>
       </section>
       <section>
